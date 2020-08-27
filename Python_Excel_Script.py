@@ -9,11 +9,11 @@ import datetime as dtime
 #Opoen the Excel
 print('Script started at : ',dtime.datetime.now())
 
-book = xlrd.open_workbook(argv[1]) #  By EMail BYEMAIL.xlsx
+book = xlrd.open_workbook(argv[1]) # St By EMail StBYEMAIL.xlsx
 
 
 # Sheet name
-first_sheet = book.sheet_by_index(0)  #  by email Sheet
+first_sheet = book.sheet_by_index(0)  # St by email Sheet
 
 
 # Create the workbook and sheet for updating the file
@@ -21,8 +21,8 @@ wb = copy(book);
 w_sheet = wb.get_sheet(0)
 
 
-# index of  BY email
-print(' By email index')
+# index of St BY email
+print('St By email index')
 
 for i in range(0,first_sheet.ncols):
 
@@ -44,19 +44,19 @@ for i in range(0,first_sheet.ncols):
         pindex8=i
     elif first_sheet.cell(0,i).value=="Data Primary Signing Authority: Last Name":
         pindex9=i      
-    elif first_sheet.cell(0,i).value== " Due in 45 Days":
+    elif first_sheet.cell(0,i).value== "St Due in 45 Days":
         pindex10=i
-    elif first_sheet.cell(0,i).value== " Over Due":
+    elif first_sheet.cell(0,i).value== "St Over Due":
         pindex11=i
-    elif first_sheet.cell(0,i).value== " Activation Link  Expiring in 14 Days":
+    elif first_sheet.cell(0,i).value== "St Activation Link  Expiring in 14 Days":
         pindex12=i
-    elif first_sheet.cell(0,i).value== " Expired Activation Link":
+    elif first_sheet.cell(0,i).value== "St Expired Activation Link":
         pindex13=i
-    elif first_sheet.cell(0,i).value== " Expired in Next 45 days":
+    elif first_sheet.cell(0,i).value== "St Expired in Next 45 days":
         pindex14=i
-    elif first_sheet.cell(0,i).value== " Submitted":
+    elif first_sheet.cell(0,i).value== "St Submitted":
         pindex15=i
-    elif first_sheet.cell(0,i).value== " Assigned":
+    elif first_sheet.cell(0,i).value== "St Assigned":
         pindex16=i
     elif first_sheet.cell(0,i).value=="Exception table":
         pindex17=i
@@ -81,7 +81,7 @@ def Data_Update():
     
     for i in range(0,m_sheet.ncols):
 
-        if m_sheet.cell(0,i).value=="LLC+Account number (Paladion only)":
+        if m_sheet.cell(0,i).value=="LLC+Account number (pdt only)":
             mindex1=i
         elif m_sheet.cell(0,i).value=="Primary Signing Authority: Email":
             mindex2=i
@@ -110,7 +110,7 @@ def Excepion_Update():
     
     for i in range(0,e_sheet.ncols):
 
-        if e_sheet.cell(0,i).value=="LLC+Account number (Paladion only)":
+        if e_sheet.cell(0,i).value=="LLC+Account number (pdt only)":
             eindex1=i
         elif e_sheet.cell(0,i).value=="Primary Signing Authority: Email":
             eindex2=i
@@ -133,9 +133,9 @@ def Excepion_Update():
 
 
 def Aging_data_update():
-    print(' Aging Data Idexing and Update')
-    abook = xlrd.open_workbook(argv[4]) #  Aging Report
-    a_sheet = abook.sheet_by_index(0)   #  Aging Report Sheet
+    print('St Aging Data Idexing and Update')
+    abook = xlrd.open_workbook(argv[4]) # St Aging Report
+    a_sheet = abook.sheet_by_index(0)   # St Aging Report Sheet
 
     for i in range(0,a_sheet.ncols):
         if a_sheet.cell(0,i).value=="Primary Signing Authority: Email":
@@ -144,7 +144,7 @@ def Aging_data_update():
             aindex2=i
         elif a_sheet.cell(0,i).value=="Overdue(Days)":
             aindex3=i
-        elif a_sheet.cell(0,i).value==" Expiry Date":
+        elif a_sheet.cell(0,i).value=="St Expiry Date":
             aindex4=i
         elif a_sheet.cell(0,i).value=="Activation Due in (Days)":
             aindex5=i
@@ -176,9 +176,13 @@ print('Aging Data Update Done')
 
 
 
-wb.save(" Data Fetched Done.xls");
+wb.save("St Data Fetched Done.xls");
 
 print('Script ended at : ',dtime.datetime.now())
 
-print("Fetched => Data Update, Exceptional Data Update,  Aging Data !!");
+print("Fetched => Data Update, Exceptional Data Update, St Aging Data !!");
+
+
+
+
 
